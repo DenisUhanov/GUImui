@@ -1,13 +1,13 @@
-import javax.swing.*;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] argv) {
-        JFrame jFrame = new JFrame();
-        jFrame.setVisible(true);
-        jFrame.setBounds(750,250,700,200);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public static void main(String[] argv) throws IOException {
+        Settings settings = new Settings("settings.xml");
+        settings.loadFileSettings();
+        settings.readSettings();
 
-        jFrame.revalidate();
+        Gui.action(700,250);
+
     }
 }
 
