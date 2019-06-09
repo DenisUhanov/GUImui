@@ -4,77 +4,49 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import static settings.GUI.GUIsettings.windowsError;
+import static settings.GUI.settingPane.windowsError;
 
 /**
  * Gather - место запуска всех настроек
  */
 public class Gather {
     //Имя и путь до файла настроек
-    String pathFile = "settings.xml";
-
-    //Размер главного окна
-    public static int windWdth = 700;
-    public static int windHeight = 200;
+    static String pathFile = "settings.xml";
 
     //*
-    Properties saveProperties = new Properties();
-    Properties readProperties = new Properties();
+    static Properties saveProperties = new Properties();
+    public static Properties readProperties = new Properties();
 
-    /**
-     * Начинаем работу с настройками
-     * @throws IOException
-     */
-    public void property () throws IOException {
-            ToLoad toLoad = new ToLoad();
 
-            //Считываем настройки
-            toLoad.read();
+    public void read() throws IOException {
+        try {
+            readProperties.loadFromXML(new FileInputStream(pathFile));
 
+
+        }catch (Exception ex){
+            //Информация об ошибке
+            windowsError(ex.getLocalizedMessage());
+            //Загружаю дефолтные параметры если возникла ошибка
+            String[] param = {"null","null","null","null", "null","null"};
+            setProperty(param);
         }
 
-    /**
-     * ToLoad - считываем данные из файла настроект
-     */
-    class ToLoad {
-
-        void read() throws IOException {
-            /**
-             * считываем настроки из файла
-             */
-            try {
-                readProperties.loadFromXML(new FileInputStream(pathFile));
-
-            }catch (Exception ex){
-                //Информация об ошибке
-                windowsError(ex.getLocalizedMessage());
-                //Загружаю дефолтные параметры
-                new ToSet().defaultProperty();
-            }
-
-        }
     }
 
-    /**
-     * ToSet - задаем данные в файл настроек
-     */
-    class ToSet {
 
-        void defaultProperty() throws IOException {
+    public void setProperty(String[] param) throws IOException {
             /**
-             * Задаем стандартные значение в настройках
+             * Задаем значение в файл настройки
              */
-            saveProperties.setProperty("konsole","null");
-            saveProperties.setProperty("arg","null");
-            saveProperties.setProperty("typeBD","null");
-            saveProperties.setProperty("host","null");
-            saveProperties.setProperty("user","null");
-            saveProperties.setProperty("pass","null");
+            saveProperties.setProperty("konsole",param[0]);
+            saveProperties.setProperty("arg",param[1]);
+            saveProperties.setProperty("typeBD",param[2]);
+            saveProperties.setProperty("host",param[3]);
+            saveProperties.setProperty("user",param[4]);
+            saveProperties.setProperty("pass",param[5]);
 
             saveProperties.storeToXML(new FileOutputStream(pathFile),"");
             saveProperties.clear();
         }
-
-    }
 
 }

@@ -2,9 +2,10 @@ package settings.GUI;
 
 import javax.swing.*;
 
-public class GUIsettings {
 
-    void jPanel (){
+public class settingPane {
+
+    public static void jPanel (){
 
     }
 
