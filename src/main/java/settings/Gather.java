@@ -4,10 +4,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import static settings.GUI.settingPane.windowsError;
+import static GUI.SettingPane.windowsError;
 
 /**
- * Gather - место запуска всех настроек
+ * Gather - Основные функции с использованием файла настроек
  */
 public class Gather {
     //Имя и путь до файла настроек
