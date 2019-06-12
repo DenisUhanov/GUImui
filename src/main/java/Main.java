@@ -1,3 +1,4 @@
+import GUI.ServerPanel;
 import settings.Gather;
 import javax.swing.*;
 import java.io.IOException;
@@ -13,6 +14,9 @@ public class Main {
         jFrame.setBounds(600,600, 700,200);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
+
+        ServerPanel serverPanel = new ServerPanel();
+        serverPanel.serverPanels(3,jFrame);
 
         jFrame.revalidate();
 
