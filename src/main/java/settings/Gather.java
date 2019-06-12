@@ -27,7 +27,7 @@ public class Gather {
             //Информация об ошибке
             windowsError(ex.getLocalizedMessage());
             //Загружаю дефолтные параметры если возникла ошибка
-            String[] param = {"null","null","null","null", "null","null"};
+            String[] param = {"null","null","null","null", "null","null","null",};
             setProperty(param);
         }
 
@@ -36,14 +36,15 @@ public class Gather {
 
     public void setProperty(String[] param) throws IOException {
             /**
-             * Задаем значение в файл настройки
+             * Задаем стандартные значение в файл настройки
              */
             saveProperties.setProperty("konsole",param[0]);
             saveProperties.setProperty("arg",param[1]);
             saveProperties.setProperty("typeBD",param[2]);
             saveProperties.setProperty("host",param[3]);
-            saveProperties.setProperty("user",param[4]);
-            saveProperties.setProperty("pass",param[5]);
+            saveProperties.setProperty("bdName",param[4]);
+            saveProperties.setProperty("passBD",param[5]);
+            saveProperties.setProperty("userBD",param[6]);
 
             saveProperties.storeToXML(new FileOutputStream(pathFile),"");
             saveProperties.clear();
