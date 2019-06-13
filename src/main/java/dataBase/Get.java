@@ -16,7 +16,8 @@ public class Get {
 
 
         } catch (SQLException e) {
-            GUI.SettingPane.windowsError("statement показал бибу");
+            System.out.println("statemetn биба");
+            e.printStackTrace();
         }
         return resultSet;
     }
