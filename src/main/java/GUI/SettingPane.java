@@ -5,10 +5,7 @@ import javax.swing.*;
 
 public class SettingPane {
 
-    public static void jPanel (){
-
-    }
-
+    //Оповещение об ошибке
     public static void windowsError(String text){
         JOptionPane.showMessageDialog(null, text,"БИБА!!", JOptionPane.ERROR_MESSAGE);
     }

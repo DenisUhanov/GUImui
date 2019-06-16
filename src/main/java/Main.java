@@ -1,9 +1,7 @@
-import dataBase.Get;
-import loaders.LoaderElement;
+import GUI.ServerPanel;
 import settings.Gather;
 import javax.swing.*;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -18,8 +16,8 @@ public class Main {
         jFrame.setBounds(600, 600, 700, 200);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        LoaderElement loaderElement = new LoaderElement();
-        jFrame.add(loaderElement.jPanelArray());
+        ServerPanel serverPanel = new ServerPanel();
+        jFrame.add(serverPanel.ServerPanels(new JTabbedPane()));
 
         jFrame.setVisible(true);
 
