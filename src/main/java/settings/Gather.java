@@ -18,7 +18,7 @@ public class Gather {
     public static Properties readProperties = new Properties();
 
 
-    public void read() throws IOException {
+    public static void readAll() throws IOException {
         try {
             readProperties.loadFromXML(new FileInputStream(pathFile));
 
@@ -27,27 +27,26 @@ public class Gather {
             //Информация об ошибке
             windowsError(ex.getLocalizedMessage());
             //Загружаю дефолтные параметры если возникла ошибка
-            String[] param = {"null","null","null","null", "null","null","null",};
+            String[] param = {"null","null","null","null", "null","null","null","null"};
             setProperty(param);
         }
-
     }
 
 
-    public void setProperty(String[] param) throws IOException {
-            /**
-             * Задаем стандартные значение в файл настройки
-             */
-            saveProperties.setProperty("konsole",param[0]);
-            saveProperties.setProperty("arg",param[1]);
-            saveProperties.setProperty("typeBD",param[2]);
-            saveProperties.setProperty("host",param[3]);
-            saveProperties.setProperty("bdName",param[4]);
-            saveProperties.setProperty("passBD",param[5]);
-            saveProperties.setProperty("userBD",param[6]);
-
-            saveProperties.storeToXML(new FileOutputStream(pathFile),"");
-            saveProperties.clear();
-        }
+    public static void setProperty(String[] param) throws IOException {
+        /**
+        * Задаем стандартные значение в файл настройки
+        */
+        saveProperties.setProperty("UserBD",param[0]);
+        saveProperties.setProperty("PassBD",param[1]);
+        saveProperties.setProperty("HostBD",param[2]);
+        saveProperties.setProperty("NameBD",param[3]);
+        saveProperties.setProperty("TypeBD",param[4]);
+        saveProperties.setProperty("Konsole",param[5]);
+        saveProperties.setProperty("ArgTerminal",param[6]);
+        saveProperties.setProperty("UserTerminal",param[7]);
+        saveProperties.storeToXML(new FileOutputStream(pathFile),"");
+        saveProperties.clear();
+    }
 
 }

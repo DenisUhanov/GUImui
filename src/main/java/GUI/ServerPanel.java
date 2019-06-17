@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class ServerPanel {
 
-    public JTabbedPane ServerPanels(JTabbedPane jTabbed) throws SQLException {
+    public JTabbedPane fittingServPanels(JTabbedPane jTabbed) throws SQLException {
 
         //инициализируем создание кнопок и панелей
         Create create = new Create();

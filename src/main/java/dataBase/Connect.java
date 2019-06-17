@@ -7,10 +7,10 @@ public class Connect {
     static Connection connection = null;
 
     //берем данные из настроек для подключения к бд.
-    static String host = settings.Gather.readProperties.getProperty("host");
-    static String bdName = settings.Gather.readProperties.getProperty("bdName");
-    static String userBD = settings.Gather.readProperties.getProperty("userBD");
-    static String passBD = settings.Gather.readProperties.getProperty("passBD");
+    static String host = settings.Gather.readProperties.getProperty("HostBD");
+    static String bdName = settings.Gather.readProperties.getProperty("NameBD");
+    static String userBD = settings.Gather.readProperties.getProperty("UserBD");
+    static String passBD = settings.Gather.readProperties.getProperty("PassBD");
 
 
     //метод выполняющий подключение к бд
@@ -26,6 +26,5 @@ public class Connect {
 
         return  connection;
     }
-
 
 }
