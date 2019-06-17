@@ -1,4 +1,7 @@
 package dataBase;
+import GUI.OtherPanel;
+
+import javax.swing.*;
 import java.sql.*;
 
 
@@ -20,8 +23,8 @@ public class Connect {
             connection = DriverManager.getConnection(prefBd+host+"/"+bdName,userBD,passBD);
 
         }catch (SQLException sqlEx){
-            sqlEx.printStackTrace();
-            GUI.OtherPanel.windowsError("Не могу в БД");
+            GUI.OtherPanel.windowsError("Не могу в БД, Задай или исправь настройки подключения к БД.");
+
         }
 
         return  connection;

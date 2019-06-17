@@ -23,8 +23,6 @@ public class Gather {
 
 
         }catch (Exception ex){
-            //Информация об ошибке
-            GUI.OtherPanel.windowsError(ex.getLocalizedMessage());
             //Загружаю дефолтные параметры если возникла ошибка
             String[] param = {"null","null","null","null", "null","null","null","null"};
             setProperty(param);

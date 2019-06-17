@@ -4,7 +4,12 @@ import settings.Gather;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
+
+
 
 
 public class OtherPanel {
@@ -32,6 +37,8 @@ public class OtherPanel {
 
         /**
          * Ебаный пиздей,вывод кнопки, полей и лейблов с настройками
+         *
+         * Зачем я их загоняю в списки если их финальное количество извесно
          */
         listLabel.get(0).setText("Консоль:");
         listField.get(0).setText((String) Gather.readProperties.get("Konsole"));
@@ -50,7 +57,16 @@ public class OtherPanel {
         listLabel.get(7).setText("Пользователь БД:");
         listField.get(7).setText((String) Gather.readProperties.get("UserBD"));
 
+        //Кнопка сохранить
         JButton jButtonSave = new JButton("Сохранить");
+        //По нажитию на кнопку
+        jButtonSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
+
         jPanelSettings.add(jButtonSave);
 
         return jPanelSettings;
@@ -59,7 +75,20 @@ public class OtherPanel {
 
     //Оповещение об ошибке
     public static void windowsError(String text){
-        JOptionPane.showMessageDialog(null, text,"БИБА!!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, text,"Биба, не смогла отработать", JOptionPane.ERROR_MESSAGE);
+
+        JFrame jFrame = new JFrame();
+        jFrame.setBounds(600, 600, 700, 200);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
+        jFrame.setTitle("GUIMUI Настройки");
+
+        OtherPanel otherPanel = new OtherPanel();
+        JPanel jPanel = otherPanel.settingPane(new JPanel());
+
+        jFrame.add(jPanel);
+        //System.exit(0);
+
     }
 
 

@@ -21,6 +21,7 @@ public class Main {
         JFrame jFrame = new JFrame();
         jFrame.setBounds(600, 600, 700, 200);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setTitle("GUIMUI");
 
         //Создаем объект создающий и собирающий панели
         ServerPanel serverPanel = new ServerPanel();
