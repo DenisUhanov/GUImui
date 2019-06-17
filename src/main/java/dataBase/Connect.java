@@ -21,7 +21,7 @@ public class Connect {
 
         }catch (SQLException sqlEx){
             sqlEx.printStackTrace();
-            GUI.SettingPane.windowsError("Не могу в БД");
+            GUI.OtherPanel.windowsError("Не могу в БД");
         }
 
         return  connection;

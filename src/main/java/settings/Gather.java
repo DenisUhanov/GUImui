@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import static GUI.SettingPane.windowsError;
 
 /**
  * Gather - Основные функции с использованием файла настроек
@@ -25,7 +24,7 @@ public class Gather {
 
         }catch (Exception ex){
             //Информация об ошибке
-            windowsError(ex.getLocalizedMessage());
+            GUI.OtherPanel.windowsError(ex.getLocalizedMessage());
             //Загружаю дефолтные параметры если возникла ошибка
             String[] param = {"null","null","null","null", "null","null","null","null"};
             setProperty(param);
