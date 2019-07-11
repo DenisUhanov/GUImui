@@ -1,43 +1,30 @@
-import GUI.OtherPanel;
-import GUI.ServerPanel;
-import settings.Gather;
+import Core.Database;
+import Core.Knob;
+
 import javax.swing.*;
-import java.io.IOException;
 import java.sql.SQLException;
 
 
-
 public class Main {
-    public static void main(String[] argv) throws IOException, SQLException {
+    public static void main(String[] argv) throws SQLException {
+        Database database = new Database();
+        database.runSQL("SELECT * FROM panelList");
 
-        //получить настроки
-        settings.Gather gather = new Gather();
-        gather.readAll();
+        //Если коннект с базой данных есть отрисовываем графику
+        if (database.connection != null){
+            JFrame jFrame = new JFrame();
+            jFrame.setBounds(600, 600, 700, 200);
+            jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            jFrame.setTitle("GUIMUI");
 
-        //Подгружаем прочие панели, настроки и добавления
-        OtherPanel otherPanel = new OtherPanel();
 
-        //Создаем главное окно и задаем ему параметры
-        JFrame jFrame = new JFrame();
-        jFrame.setBounds(600, 600, 700, 200);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setTitle("GUIMUI");
-
-        //Создаем объект создающий и собирающий панели
-        ServerPanel serverPanel = new ServerPanel();
-        //объект имеющий возможность создавать вкладки
-        JTabbedPane globalTabs = new JTabbedPane();
-        //Помещаем в данный обхект панели в каждую вкладку
-        globalTabs.addTab("Сервера",serverPanel.fittingServPanels(new JTabbedPane()));
-
-        //Создаем панель настроек и присваиваем ей ссылку settingsPanel
-        JPanel settingsPanel= otherPanel.settingPane(new JPanel());
-        //Добавляем панель настроек во вкладку настроки
-        globalTabs.addTab("Настройки", settingsPanel);
-
-        jFrame.add(globalTabs);
-        jFrame.setVisible(true);
+            jFrame.setVisible(true);
+        }
+        else {
+            System.out.println("Биба с бд");
+        }
 
     }
+
 }
 
