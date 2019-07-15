@@ -1,32 +1,34 @@
 package Core;
 
-import java.sql.*;
+import Interface.Settings;
+import TuneUP.Parameter;
+import com.mysql.jdbc.Connection;
 
-public class Database {
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
+public class DataBase {
+public static int errorFlag = 0;
 
     public static Connection connection = null;
 
     //метод выполняющий подключение к бд
-    static Connection connectDB() throws SQLException {
-
-        //Это загрузит драйвер MySQL
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-
-            System.out.println("MySQL JDBC Driver зарегистрирован!");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Нет драйвера?");
-            e.printStackTrace();
-        }
+    Connection connectDB() throws SQLException {
 
         //Подключение к БД
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://91.224.23.227/javatest","userjava","8S0r9G9v");
+            String host = Parameter.settingsMap.get("host");
+            String nameDB = Parameter.settingsMap.get("nameDB");
+            String userBD = Parameter.settingsMap.get("userBD");
+            String passBD = Parameter.settingsMap.get("passBD");
+            connection = (Connection) DriverManager.getConnection("jdbc:mysql://"+ host +"/"+nameDB,userBD,passBD);
 
         } catch (SQLException e) {
             System.out.println("Не удалось установить соединение! Проверьте консоль");
-            e.printStackTrace();
+            errorFlag = 1;
+            Settings.settingsWindow();
 
         }
 
@@ -35,14 +37,15 @@ public class Database {
             System.out.println("Соединение установлено!");
         } else {
             System.out.println("Не удалось установить соединение!");
+            errorFlag = 2;
         }
         //Возвращаем коннект
-    return connection;
+        return connection;
     }
 
 
 
-
+    //Ввыполняем SQL
     public ResultSet runSQL (String sql){
         ResultSet resultSet = null;
         try{
@@ -53,6 +56,7 @@ public class Database {
         } catch (SQLException e) {
             System.out.println("statemetn биба");
             e.printStackTrace();
+            errorFlag = 3;
         }
         return resultSet;
     }

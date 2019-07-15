@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Preset {
       //пресет панелей, возвращает готовую панель с прокруткой
-    public JScrollPane readyPanel (JPanel jPanel ) {
+    static public JScrollPane readyPanel (JPanel jPanel ) {
 
         jPanel.setLayout(new GridLayout(0, 4, 5, 5));
         JScrollPane jScrollPane = new JScrollPane(jPanel);
