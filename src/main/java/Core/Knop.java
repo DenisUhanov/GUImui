@@ -57,7 +57,7 @@ public class Knop {
                 }
             });
 
-            JButton error  = new JButton("Инциндент");
+            JButton error  = new JButton("Изменить");
             error.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {

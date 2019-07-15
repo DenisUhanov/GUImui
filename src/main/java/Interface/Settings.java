@@ -13,7 +13,7 @@ import static TuneUP.Parameter.*;
 
 public class Settings {
 
-   static public JPanel mainSettings (){
+   static public JScrollPane mainSettings (){
        JPanel jPanel = new JPanel();
 
        jPanel.setLayout(new GridLayout(0, 2, 5, 5));
@@ -93,8 +93,7 @@ public class Settings {
        jPanel.add(save);
        jPanel.add(clear);
 
-
-       return jPanel;
+       return Interface.Preset.jsSet(jPanel);
     }
 
     public static void settingsWindow(){
