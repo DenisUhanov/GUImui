@@ -4,11 +4,15 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import static TuneUP.Parameter.readProperties;
 
 public class KnopAction {
     static Runtime rt = Runtime.getRuntime();
+    DataBase dataBase = new DataBase();
+
 
     static void enterAction(String ip, int port, String userSSH) throws IOException {
 
@@ -33,7 +37,6 @@ public class KnopAction {
     }
 
     public static void pingAction(String ip) throws IOException {
-
         String command;
         command= readProperties.getProperty("terminal") + " "+readProperties.getProperty("arg")+" ping "+ip;
         Process pr = rt.exec(command);
@@ -42,6 +45,11 @@ public class KnopAction {
 
     public static void errorAction(){
         //открыть ссылку
+    }
+
+    public void addKnopAction() throws SQLException {
+        Statement st = DataBase.connection.createStatement();
+        st.executeQuery("");
     }
 
 }

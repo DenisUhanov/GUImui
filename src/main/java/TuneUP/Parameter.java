@@ -16,8 +16,6 @@ public class Parameter {
     public static Properties saveProperties = new Properties();
     public static Properties readProperties = new Properties();
 
-    InputStream file = this.getClass().getClassLoader().getResourceAsStream("files/settings.txt");
-
     static String filePath = "settings.xml";
 
 

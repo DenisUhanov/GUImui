@@ -1,7 +1,13 @@
 package Interface;
 
+import Core.KnopAction;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
 
 public class ControlPanel {
 
@@ -49,6 +55,18 @@ public class ControlPanel {
 
         JButton save = new JButton();
         save.setText("Добавить");
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    KnopAction knopAction = new KnopAction();
+                    knopAction.addKnopAction();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         jPanel.add(save);
 
         JButton clear = new JButton();
@@ -67,6 +85,12 @@ public class ControlPanel {
 
         JButton save = new JButton();
         save.setText("Добавить");
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
         jPanel.add(save);
 
         JButton clear = new JButton();
