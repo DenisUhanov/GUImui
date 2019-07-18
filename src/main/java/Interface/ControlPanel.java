@@ -38,11 +38,11 @@ public class ControlPanel {
 
 
         JLabel status = new JLabel();
-        status.setText("Статус добавления:");
+        status.setText("Заметка:");
         jPanel.add(status);
 
         final JTextArea text0 = new JTextArea();
-        text0.setText("Жду добвления, нельзя оставлять поля пустыми.\nЕсли порта нет, пиши 0.");
+        text0.setText("Нельзя оставлять поля пустыми.\nЕсли порта нет, пиши 0.");
         jPanel.add(text0);
 
         JLabel ip =new JLabel("IP сервера:");
@@ -108,11 +108,11 @@ public class ControlPanel {
         jPanel.setLayout(new GridLayout(0, 2, 5, 5));
 
         JLabel status = new JLabel();
-        status.setText("Статус добавления:");
+        status.setText("Заметка:");
         jPanel.add(status);
 
         final JTextArea text0 = new JTextArea();
-        text0.setText("Жду добвления, нельзя оставлять поля пустыми.");
+        text0.setText("Нельзя оставлять поля пустыми.");
         jPanel.add(text0);
 
         JLabel name =new JLabel("Имя Панели:");
@@ -154,11 +154,11 @@ public class ControlPanel {
         jPanel.setLayout(new GridLayout(0, 2, 5, 5));
 
         JLabel status = new JLabel();
-        status.setText("Статус удаления:");
+        status.setText("Заметка:");
         jPanel.add(status);
 
         final JTextArea text0 = new JTextArea();
-        text0.setText("Жду команды, нельзя оставлять поля пустыми.");
+        text0.setText("Нельзя оставлять поля пустыми.");
         jPanel.add(text0);
 
         JLabel id =new JLabel("ID Панели:");

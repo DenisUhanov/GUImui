@@ -17,7 +17,7 @@ public class Main {
             WindowMain windowMain = new WindowMain();
 
             JFrame jFrame = new JFrame();
-            jFrame.setBounds(600, 600, 700, 400);
+            jFrame.setBounds(600, 600, 700, 300);
             jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             jFrame.setTitle("GUIMUI");
 
