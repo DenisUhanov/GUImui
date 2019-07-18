@@ -7,10 +7,9 @@ import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
-
 public class Main {
-    public static void main(String[] argv) throws SQLException, IOException {
+    public static void main(String[] argv) throws SQLException {
+
         Parameter parameter = new Parameter();
         parameter.readSettings();
 
@@ -18,19 +17,17 @@ public class Main {
             WindowMain windowMain = new WindowMain();
 
             JFrame jFrame = new JFrame();
-            jFrame.setBounds(600, 600, 700, 300);
+            jFrame.setBounds(600, 600, 700, 400);
             jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             jFrame.setTitle("GUIMUI");
 
             JTabbedPane serverList = new JTabbedPane();
             serverList.addTab("Сервера",windowMain.globalTabled(new JTabbedPane()));
-            serverList.addTab("Панель управления",Interface.ControlPanel.addOrDell());
+            serverList.addTab("Управление",Interface.ControlPanel.addOrDell());
             serverList.addTab("Настройки",Interface.Settings.mainSettings());
 
             jFrame.add(serverList);
             jFrame.setVisible(true);
-
-            DataBase.connection.close();
 
         }
         else {
@@ -39,6 +36,3 @@ public class Main {
         }
     }
 }
-
-
-

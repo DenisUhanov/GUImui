@@ -54,4 +54,3 @@ public class Parameter {
         saveProperties.storeToXML(new FileOutputStream(filePath),"");
     }
 }
-

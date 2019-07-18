@@ -63,7 +63,8 @@ public class Settings {
                    setSettings(terminalFie.getText(),agrFie.getText(),hostFie.getText(),nameDBFIE.getText(),userBDFie.getText(),passBDFIE.getText());
                    readSettings();
                    save.setBackground(Color.green);
-                   save.setText("Сохранил, может еще раз?");
+                   save.setText("Сохранил");
+
 
                } catch (IOException e) {
                    e.printStackTrace();
@@ -98,15 +99,10 @@ public class Settings {
 
     public static void settingsWindow(){
         JFrame jFrame = new JFrame();
-        jFrame.setBounds(600, 600, 700, 200);
+        jFrame.setBounds(600, 600, 700, 400);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setTitle("Возникла ошибка, проверь настройки");
         jFrame.add(Settings.mainSettings());
         jFrame.setVisible(true);
     }
-
-
-
-
-
 }

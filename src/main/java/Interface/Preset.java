@@ -19,10 +19,8 @@ public class Preset {
       //пресет панелей, возвращает готовую панель с прокруткой
     static public JScrollPane readyPanel (JPanel jPanel ) {
 
-        jPanel.setLayout(new GridLayout(0, 4, 5, 5));
+        jPanel.setLayout(new GridLayout(0, 5, 5, 5));
 
         return Interface.Preset.jsSet(jPanel);
     }
-
-
 }
