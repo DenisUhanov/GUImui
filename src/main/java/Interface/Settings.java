@@ -10,9 +10,12 @@ import java.io.IOException;
 
 import static TuneUP.Parameter.*;
 
-
+/** Settings класс описывает методы содержащие интерфейс вкладки настроек */
 public class Settings {
 
+   /**mainSettings главная панель настроек
+    * @return возвращает готовую панель настроект с прокруткой
+    * */
    static public JScrollPane mainSettings (){
        JPanel jPanel = new JPanel();
 
@@ -54,7 +57,7 @@ public class Settings {
        jPanel.add(passBD);
        jPanel.add(passBDFIE);
 
-       //Кнопки
+       /**@value save кнопка сохранить */
        final JButton save = new JButton("Сохранить");
        save.addActionListener(new ActionListener() {
            @Override
@@ -75,7 +78,7 @@ public class Settings {
            }
        });
 
-
+       /**@value clear кнопка очитсить */
        JButton clear = new JButton("Очистить");
        clear.addActionListener(new ActionListener() {
            @Override
@@ -97,6 +100,7 @@ public class Settings {
        return Interface.Preset.jsSet(jPanel);
     }
 
+    /** settingsWindow окно с настрйоками которое открывается когда прозашла ошибка, когда DataBase.errorFlag не ранов 0 */
     public static void settingsWindow(){
         JFrame jFrame = new JFrame();
         jFrame.setBounds(600, 600, 700, 400);

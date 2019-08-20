@@ -1,8 +1,6 @@
 package Interface;
 
 import Core.DataBase;
-import Core.KnopAction;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,32 +8,39 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static TuneUP.Parameter.readSettings;
-
-
+/** Класс описывающий вкладку управления */
 public class ControlPanel {
 
+    /**addOrDell метод описывающий Панель Управление, содержит вкладки: добавить сервер, добавить панель, удалить панель
+     * @return tableCP это JTabbedPane (Управление) содержащий вклади управления
+     * */
     public static JTabbedPane addOrDell(){
         JTabbedPane tableCP = new JTabbedPane();
+
+        /** Панели управления которые будут отправлены в методы для заполнения их контентом */
         JPanel addKnopJP = new JPanel();
         JPanel addPanelJP = new JPanel();
         JPanel dellPanelJP = new JPanel();
 
+        /**@see ControlPanel#addKnop(JPanel) метод отвечает за добавление кнопок (серверов)
+         * @see ControlPanel#addPanel(JPanel) метод отвечает за добавление панелей
+         * @see ControlPanel#dellPanel(JPanel) метод отвечает за удаление панелей
+         * */
         addKnop(addKnopJP);
         addPanel(addPanelJP);
         dellPanel(dellPanelJP);
 
+        /**После того как панели управления будут заполнены контентом, можно их добавить как вкладки */
         tableCP.addTab("Добавить сервер", Interface.Preset.jsSet(addKnopJP));
         tableCP.addTab("Добавить панель", Interface.Preset.jsSet(addPanelJP));
         tableCP.addTab("Удалить панель", Interface.Preset.jsSet(dellPanelJP));
 
-
         return tableCP;
     }
 
+    /** addKnop метод добавляющий на панель и в БД возможность добавления кнопок (серверов) */
     static void addKnop(JPanel jPanel){
         jPanel.setLayout(new GridLayout(0, 2, 5, 5));
-
 
         JLabel status = new JLabel();
         status.setText("Заметка:");
@@ -70,6 +75,7 @@ public class ControlPanel {
         jPanel.add(userSSH);
         jPanel.add(userSSHFie);
 
+        /**@value save кнопка которая сохраняет кнопки (сервера) В БД */
         JButton save = new JButton();
         save.setText("Добавить");
         save.addActionListener(new ActionListener() {
@@ -98,12 +104,14 @@ public class ControlPanel {
         });
         jPanel.add(save);
 
+        /** @value clear кнопка очистить */
         JButton clear = new JButton();
         clear.setText("Очистить");
         jPanel.add(clear);
 
     }
 
+    /** addPanel метод добавляющий на панель элементы добавления новых панелей в БД*/
     static void addPanel(JPanel jPanel){
         jPanel.setLayout(new GridLayout(0, 2, 5, 5));
 
@@ -144,12 +152,13 @@ public class ControlPanel {
         });
         jPanel.add(save);
 
+        /** не активная часть кода?*/
         JButton clear = new JButton();
         clear.setText("Очистить");
         jPanel.add(clear);
     }
 
-
+    /** dellPanel метод добавляющий на панель элементы позволяющие удалить панели из БД*/
     static void dellPanel(JPanel jPanel){
         jPanel.setLayout(new GridLayout(0, 2, 5, 5));
 
@@ -190,6 +199,7 @@ public class ControlPanel {
         });
         jPanel.add(save);
 
+        /** не активная часть кода?*/
         JButton clear = new JButton();
         clear.setText("Очистить");
         jPanel.add(clear);
