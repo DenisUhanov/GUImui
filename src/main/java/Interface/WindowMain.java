@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+/***Класс главного окна программы */
 public class WindowMain {
 
     Preset presetJP = new Preset();

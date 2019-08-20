@@ -10,22 +10,31 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/***
+ * Класс работающий с настройками
+ */
 public class Parameter {
-    public static Map<String, String> settingsMap = new HashMap<String,String>();
 
+    /**@value  settingsMap */
+    public static Map<String, String> settingsMap = new HashMap<String,String>();
+    /**@value  saveProperties обьект для сохранения настроек*/
     public static Properties saveProperties = new Properties();
+
+    /**@value  readProperties объект дял загрузки настроек*/
     public static Properties readProperties = new Properties();
 
+    /**@value  filePath файл в котором хранятся настройки*/
     static String filePath = "settings.xml";
 
-
+    /** Метод читающий настройки из файла settings.xml и заносящий их в Карту settingsMap
+     *
+     * */
     public static void readSettings() {
-        /**
-         * Читаем настройки из файла
-         */
         try {
+            /** Считываем настроки  */
             readProperties.loadFromXML(new FileInputStream(filePath));
 
+            /** Закидываем значение в Карту */
             settingsMap.put("terminal", readProperties.getProperty("terminal"));
             settingsMap.put("arg", readProperties.getProperty("arg"));
             settingsMap.put("host", readProperties.getProperty("host"));
@@ -35,15 +44,15 @@ public class Parameter {
 
 
         } catch (Exception ex) {
+            /**  */
            DataBase.errorFlag = 6;
 
         }
     }
 
     public static void setSettings(String terminal,String arg,String host,String nameDB,String userDB,String passDB) throws IOException {
-        /**
-         * Задаем стандартные значение в настройках
-         */
+        /*** Задаем стандартные значение в настройках */
+
         saveProperties.setProperty("terminal",terminal);
         saveProperties.setProperty("arg",arg);
         saveProperties.setProperty("host",host);

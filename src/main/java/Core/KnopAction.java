@@ -13,15 +13,27 @@ import java.sql.Statement;
 
 import static TuneUP.Parameter.readProperties;
 
+/**KnopAction класс описывающий экшены для кнопок */
 public class KnopAction {
+
+    /**@value rt выполняет отправленные команды в консоль linux */
     static Runtime rt = Runtime.getRuntime();
+
+    /**@value dataBase объект для рабоыт с БД */
     DataBase dataBase = new DataBase();
 
-
+    /**enterAction метод который открывает консоль и входит на сервер по SSH
+     * @param ip ip сервера
+     * @param port порт сервера
+     * @param userSSH пользователь сервера
+     * */
     static void enterAction(String ip, int port, String userSSH) throws IOException {
 
+        /**@value command
+         * Выделяем место под команду которую исполнит консоль Linux */
         String command;
-            //Если порт не указан в бд - не используем его при подключении
+
+            /** если port  не пуст, тобишь  не равен нулю - добавляем его в исполняемую команду */
             if(port != 0){
                 command = readProperties.getProperty("terminal") + " "+readProperties.getProperty("arg")+" ssh "+ userSSH +"@" + ip + " -p" + port;
                 System.out.println(command);
@@ -29,28 +41,44 @@ public class KnopAction {
             else {
                 command = readProperties.getProperty("terminal") + " "+readProperties.getProperty("arg")+" ssh "+ userSSH +"@"+ip;
             }
+
+        /**@value pr
+         * Выполняем сформированную команду в терминале Linux*/
         Process pr = rt.exec(command);
     }
 
+    /**ipAction метод который копирует IP сервера в буфер
+     * @param ip ip сервера
+     *
+     * */
     public static void ipAction(String ip){
-        //копируем ip сервера
         StringSelection stringSelection = new StringSelection(ip);
         Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
         clpbrd.setContents(stringSelection, null);
 
     }
 
+    /**pingAction метод который пингует сервер
+     * @param ip ip сервера
+     * */
     public static void pingAction(String ip) throws IOException {
+        /**@value command
+         * Выделяем место под команду которую исполнит консоль Linux */
         String command;
+
         command= readProperties.getProperty("terminal") + " "+readProperties.getProperty("arg")+" ping "+ip;
+
+        /**@value pr
+         * Выполняем сформированную команду в терминале Linux*/
         Process pr = rt.exec(command);
 
     }
 
+    /** deleteAction метод который удаляет сервер из БД */
     public static void deleteAction(String itIsID, JButton remove){
-        System.out.println(itIsID);
-
+        //и тут опять объект для работы с БД
         DataBase dataBase = new DataBase();
+
         String sql ="DELETE FROM serverParam WHERE ID=?";
 
         try {
@@ -65,8 +93,19 @@ public class KnopAction {
         }
 
     }
-
+    /** editAction метод позволяющий менять параметры сервера в БД, так же открывает окно с полями для изменения
+     * @param itIsName Имя сервера
+     * @param itIsIP IP сервера
+     * @param itIsPanel  Номер панели?
+     * @param itIsPORT Порт сервера
+     * @param itIsUserSSH Пользователь Сервера
+     * @param itIsID ID севрера?
+     *
+     * */
     public static void editAction(String itIsName, String itIsIP, int itIsPanel, int itIsPORT, String itIsUserSSH, final String itIsID){
+
+       //Ну этот метод надо изменить
+
         JFrame jFrame = new JFrame();
         jFrame.setBounds(500, 500, 700, 400);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,7 +143,6 @@ public class KnopAction {
 
         final JButton save = new JButton("Сохранить");
         jPanel1.add(save);
-
 
         save.addActionListener(new ActionListener() {
             @Override
