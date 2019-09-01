@@ -10,12 +10,12 @@ import java.sql.SQLException;
 /*** WindowMain Класс описывающий вкладку Сервера*/
 public class WindowMain {
 
-    /**@value presetJP объект для применения "пресетов" к панелям.
+    /**presetJP объект для применения "пресетов" к панелям.
      * @see Interface.Preset
      * */
     Preset presetJP = new Preset();
 
-    /**@value knop объект для создания кнопок с серверами
+    /**knop объект для создания кнопок с серверами
      * @see Core.Knop
      * */
     Knop knop = new Knop();

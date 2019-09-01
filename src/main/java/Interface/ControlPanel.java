@@ -75,7 +75,7 @@ public class ControlPanel {
         jPanel.add(userSSH);
         jPanel.add(userSSHFie);
 
-        /**@value save кнопка которая сохраняет кнопки (сервера) В БД */
+        /**{@value save} кнопка которая сохраняет кнопки (сервера) В БД */
         JButton save = new JButton();
         save.setText("Добавить");
         save.addActionListener(new ActionListener() {
@@ -104,7 +104,7 @@ public class ControlPanel {
         });
         jPanel.add(save);
 
-        /** @value clear кнопка очистить */
+        /** {@value clear} кнопка очистить */
         JButton clear = new JButton();
         clear.setText("Очистить");
         jPanel.add(clear);
@@ -199,10 +199,6 @@ public class ControlPanel {
         });
         jPanel.add(save);
 
-        /** не активная часть кода?*/
-        JButton clear = new JButton();
-        clear.setText("Очистить");
-        jPanel.add(clear);
     }
 
 }

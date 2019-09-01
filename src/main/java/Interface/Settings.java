@@ -24,6 +24,7 @@ public class Settings {
        JLabel terminal = new JLabel("Терминал:");
        final JTextField terminalFie = new JTextField();
        terminalFie.setText(readProperties.getProperty("terminal"));
+
        jPanel.add(terminal);
        jPanel.add(terminalFie);
 
@@ -57,7 +58,7 @@ public class Settings {
        jPanel.add(passBD);
        jPanel.add(passBDFIE);
 
-       /**@value save кнопка сохранить */
+       /**{@value save} кнопка сохранить */
        final JButton save = new JButton("Сохранить");
        save.addActionListener(new ActionListener() {
            @Override
@@ -78,7 +79,7 @@ public class Settings {
            }
        });
 
-       /**@value clear кнопка очитсить */
+       /**{@value clear} кнопка очитсить */
        JButton clear = new JButton("Очистить");
        clear.addActionListener(new ActionListener() {
            @Override

@@ -14,7 +14,7 @@ import java.sql.Statement;
  * */
 public class DataBase {
 
-    /**@value errorFlag счетчик ошибок*/
+    /**{@value errorFlag} счетчик ошибок*/
 public static int errorFlag = 0;
 
 
@@ -27,10 +27,10 @@ public static int errorFlag = 0;
         try {
             /**
              * Получаем из Карты настроект следующие данные
-             * @value host хост БД
-             * @value nameDB Имя БД
-             * @value userBD Пользователь БД
-             * @value passBD Пароль БД
+             * {@value host} хост БД
+             * {@value nameDB} Имя БД
+             * {@value userBD} Пользователь БД
+             * {@value passBD} Пароль БД
              *
              */
             String host = Parameter.settingsMap.get("host");

@@ -15,15 +15,15 @@ import java.util.Properties;
  */
 public class Parameter {
 
-    /**@value  settingsMap */
+
     public static Map<String, String> settingsMap = new HashMap<String,String>();
-    /**@value  saveProperties обьект для сохранения настроек*/
+    /**saveProperties обьект для сохранения настроек*/
     public static Properties saveProperties = new Properties();
 
-    /**@value  readProperties объект дял загрузки настроек*/
+    /**readProperties объект дял загрузки настроек*/
     public static Properties readProperties = new Properties();
 
-    /**@value  filePath файл в котором хранятся настройки*/
+    /**filePath файл в котором хранятся настройки*/
     static String filePath = "settings.xml";
 
     /** Метод читающий настройки из файла settings.xml и заносящий их в Карту settingsMap

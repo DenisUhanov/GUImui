@@ -16,10 +16,10 @@ import static TuneUP.Parameter.readProperties;
 /**KnopAction класс описывающий экшены для кнопок */
 public class KnopAction {
 
-    /**@value rt выполняет отправленные команды в консоль linux */
+    /**rt выполняет отправленные команды в консоль linux */
     static Runtime rt = Runtime.getRuntime();
 
-    /**@value dataBase объект для рабоыт с БД */
+    /**dataBase объект для рабоыт с БД */
     DataBase dataBase = new DataBase();
 
     /**enterAction метод который открывает консоль и входит на сервер по SSH
@@ -29,7 +29,7 @@ public class KnopAction {
      * */
     static void enterAction(String ip, int port, String userSSH) throws IOException {
 
-        /**@value command
+        /**{@value command}
          * Выделяем место под команду которую исполнит консоль Linux */
         String command;
 
@@ -42,7 +42,7 @@ public class KnopAction {
                 command = readProperties.getProperty("terminal") + " "+readProperties.getProperty("arg")+" ssh "+ userSSH +"@"+ip;
             }
 
-        /**@value pr
+        /**{@value pr}
          * Выполняем сформированную команду в терминале Linux*/
         Process pr = rt.exec(command);
     }
@@ -62,7 +62,7 @@ public class KnopAction {
      * @param ip ip сервера
      * */
     public static void pingAction(String ip) throws IOException {
-        /**@value command
+        /**{@value command}
          * Выделяем место под команду которую исполнит консоль Linux */
         String command;
 
