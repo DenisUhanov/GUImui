@@ -67,7 +67,7 @@ public class Settings {
                    setSettings(terminalFie.getText(),agrFie.getText(),hostFie.getText(),nameDBFIE.getText(),userBDFie.getText(),passBDFIE.getText());
                    readSettings();
                    save.setBackground(Color.green);
-                   save.setText("Сохранил");
+                   save.setText("Сохранил,перезапускай");
 
 
                } catch (IOException e) {

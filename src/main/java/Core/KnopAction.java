@@ -162,7 +162,7 @@ public class KnopAction {
                     preparedStatement.setString(6,itIsID);
 
                     preparedStatement.executeUpdate();
-                    save.setText("Обновил");
+                    save.setText("Обновил, перезапускай");
                     save.setBackground(Color.green);
 
 
